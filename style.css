@@ -1,0 +1,167 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: floralwhite;
+  margin: 0;
+}
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* Dark button */
+#toggleDark {
+  margin-bottom: 10px;
+}
+
+/* Input box */
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+input, textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Buttons */
+button {
+  padding: 8px;
+  background: #069494;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+/* ================= GRID FIX ================= */
+#notesContainer {
+  margin-top: 20px;
+  display: grid;
+  gap: 15px;
+}
+
+/* 💻 Desktop */
+@media (min-width: 992px) {
+  #notesContainer {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 🖥 Tablet */
+@media (min-width: 576px) and (max-width: 991px) {
+  #notesContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 📱 Mobile */
+@media (max-width: 575px) {
+  #notesContainer {
+    grid-template-columns: 1fr !important;
+  }
+}
+/* Note card */
+.note {
+  background: white;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.note.locked {
+  background: #ddd;
+}
+
+.note h3 {
+  font-size: 15px;
+}
+
+.note-text {
+  font-size: 13px;
+  flex-grow: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.note-text.expanded {
+  -webkit-line-clamp: unset;
+}
+
+/* Buttons inside note */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: auto;
+}
+
+/* Desktop + Tablet */
+.actions button {
+  flex: 1 1 48%;
+  font-size: 11px;
+}
+
+/* Mobile buttons full width */
+@media (max-width: 575px) {
+  .actions button {
+    flex: 1 1 100%;
+    font-size: 12px;
+  }
+
+  .note h3 {
+    font-size: 14px;
+  }
+
+  .note-text {
+    font-size: 12px;
+  }
+}
+
+/* 🌙 Dark Mode */
+.dark {
+  background: #1e1e2f;
+  color: white;
+}
+
+.dark .input-box {
+  background: #2c2c3c;
+}
+
+.dark input,
+.dark textarea {
+  background: #3a3a4d;
+  color: white;
+}
+
+.dark .note {
+  background: #2c2c3c;
+}
+
+.dark .note.locked {
+  background: #444;
+}
+
+.dark button {
+  background: #088F8F;
+}
